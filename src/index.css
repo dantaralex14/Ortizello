@@ -1,0 +1,103 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+button { cursor: pointer; font-family: inherit; }
+input, textarea { font-family: inherit; }
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 106, 247, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(124, 106, 247, 0); }
+}
+
+.board-card {
+  animation: fadeIn 0.3s ease forwards;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.board-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+
+.create-card:hover {
+  border-color: #7c6af7 !important;
+  background: #0d1017 !important;
+}
+
+.create-card:hover p {
+  color: #7c6af7 !important;
+}
+
+.modal-anim {
+  animation: slideIn 0.2s ease forwards;
+}
+
+.btn-primary-hover:hover {
+  background: #6b58e8 !important;
+  transform: translateY(-1px);
+  transition: all 0.2s;
+}
+
+.kanban-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-desktop { display: none !important; }
+  .nav-mobile { display: flex !important; }
+
+  .boards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+    gap: 0.75rem !important;
+    padding: 1rem !important;
+  }
+
+  .kanban-board {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .kanban-column {
+    min-width: 240px !important;
+    max-width: 240px !important;
+  }
+
+  .modal-content {
+    margin: 1rem !important;
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .boards-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0a0d14; }
+::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #4a5568; }
